@@ -8,12 +8,14 @@ const femaleDOM=(<HTMLInputElement | null>document.getElementById('female'))!;
 const emailDOM=<HTMLInputElement>document.getElementById("email");
 const phoneDOM=<HTMLInputElement>document.getElementById("phone");
 const addRegistrationButton=<HTMLButtonElement>document.getElementById("addRegistration");
+const error =<HTMLDivElement>document.querySelector("#error");
 
-
+error.style.visibility = "hidden";
 addRegistrationButton.onclick=()=>{
     const genderInp: string = (maleDOM.checked ? 'male' : (femaleDOM.checked ? 'female' : 'unknown'));
     if (genderInp === 'unknown') {
-        alert('Pasirinkite lytį (vyras arba moteris)!');
+        error.innerHTML = "Pasirinkite lytį (vyras arba moteris)!"
+        error.style.visibility = "visible";
         return; 
     }
     const reg:Registration={
@@ -41,3 +43,5 @@ addRegistrationButton.onclick=()=>{
     })
 
 };
+
+

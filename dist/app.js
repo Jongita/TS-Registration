@@ -6,10 +6,13 @@ const femaleDOM = document.getElementById('female');
 const emailDOM = document.getElementById("email");
 const phoneDOM = document.getElementById("phone");
 const addRegistrationButton = document.getElementById("addRegistration");
+const error = document.querySelector("#error");
+error.style.visibility = "hidden";
 addRegistrationButton.onclick = () => {
     const genderInp = (maleDOM.checked ? 'male' : (femaleDOM.checked ? 'female' : 'unknown'));
     if (genderInp === 'unknown') {
-        alert('Pasirinkite lytį (vyras arba moteris)!');
+        error.innerHTML = "Pasirinkite lytį (vyras arba moteris)!";
+        error.style.visibility = "visible";
         return;
     }
     const reg = {
