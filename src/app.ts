@@ -12,7 +12,7 @@ const error =<HTMLDivElement>document.querySelector("#error");
 
 error.style.visibility = "hidden";
 addRegistrationButton.onclick=()=>{
-    const genderInp: string = (maleDOM.checked ? 'male' : (femaleDOM.checked ? 'female' : 'unknown'));
+    const genderInp: string = maleDOM.checked ? 'male' : femaleDOM.checked ? 'female' : 'unknown';
     if (genderInp === 'unknown') {
         error.innerHTML = "Pasirinkite lytį (vyras arba moteris)!"
         error.style.visibility = "visible";
