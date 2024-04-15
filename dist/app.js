@@ -38,5 +38,11 @@ addRegistrationButton.onclick = () => {
         console.log("Įrašas pridėtas");
         console.log(data);
     });
+    error.style.visibility = "hidden";
+    nameDOM.value = '';
+    surnameDOM.value = '';
+    yearDOM.value = '';
+    emailDOM.value = '';
+    phoneDOM.value = '';
 };
 export {};
