@@ -41,6 +41,8 @@ addRegistrationButton.onclick = () => {
     error.style.visibility = "hidden";
     nameDOM.value = '';
     surnameDOM.value = '';
+    maleDOM.checked = false;
+    femaleDOM.checked = false;
     yearDOM.value = '';
     emailDOM.value = '';
     phoneDOM.value = '';
