@@ -16,6 +16,7 @@ const dataTableBody=<HTMLElement>document.getElementById("dataTableBody");
 const dataTable=<HTMLElement>document.getElementById("dataTable");
 const editForm=<HTMLElement>document.getElementById("editForm");
 
+let registrationData:Registration[];
 
 error.style.visibility = "hidden";
 addRegistrationButton.onclick=()=>{
@@ -58,4 +59,107 @@ addRegistrationButton.onclick=()=>{
     phoneDOM.value = '';
 };
 
+const showData=()=>{
+    dataTableBody.innerHTML="";
+    registrationData.forEach((reg)=>{
+        const tr=document.createElement("tr");
 
+        const tdName=document.createElement("td");
+        tdName.innerHTML=reg.name;
+        
+        const tdSurname=document.createElement("td");
+        tdSurname.innerHTML=reg.surname;
+        
+        const tdYear=document.createElement("td");
+        tdYear.innerHTML=reg.year.toString();
+
+        const tdGender=document.createElement("td");
+        tdGender.innerHTML=reg.gender;
+
+        const tdEmail=document.createElement("td");
+        tdEmail.innerHTML=reg.email;
+
+        const tdPhone=document.createElement("td");
+        tdPhone.innerHTML=reg.phone;
+        // desim buttonus
+        const tdV=document.createElement("td");
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdSurname);
+        tr.appendChild(tdYear);
+        tr.appendChild(tdGender);
+        tr.appendChild(tdEmail);
+        tr.appendChild(tdPhone);
+        tr.appendChild(tdV);
+
+        dataTableBody.appendChild(tr);
+
+        tr.onclick=()=>{
+            dataTable.style.display="none";
+            editForm.style.display="block";
+            (<HTMLInputElement>document.getElementById("nameEdit")).value=reg.name;
+            (<HTMLInputElement>document.getElementById("surnameEdit")).value=reg.surname;
+            (<HTMLInputElement>document.getElementById("yearEdit")).value=reg.year.toString();
+            (<HTMLInputElement>document.getElementById("genderEdit")).value=reg.gender;
+            (<HTMLInputElement>document.getElementById("emailEdit")).value=reg.email;
+            (<HTMLInputElement>document.getElementById("phoneEdit")).value=reg.phone;
+            (<HTMLButtonElement>document.getElementById("updateRegistration")).onclick=()=>{
+                const upReg:Registration={
+                    name:(<HTMLInputElement>document.getElementById("nameEdit")).value,
+                    surname:(<HTMLInputElement>document.getElementById("surnameEdit")).value,
+                    year:(<HTMLInputElement>document.getElementById("yearEdit")).valueAsNumber,
+                    gender:(<HTMLInputElement>document.getElementById("genderEdit")).value,
+                    email:(<HTMLInputElement>document.getElementById("emailEdit")).value,
+                    phone:(<HTMLInputElement>document.getElementById("phoneEdit")).value,
+                }
+                fetch(`https://registration-a11b0-default-rtdb.europe-west1.firebasedatabase.app/registration/${reg.id}.json`,{
+                    method:"PUT",
+                    headers:{
+                        'Accept':'application/json',
+                        'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify(upReg)
+                })
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    console.log("Įrašas atnaujintas");
+                    console.log(data);
+                    dataTable.style.display="block";
+                    editForm.style.display="none";
+                    loadData();
+                })
+            }      
+          }
+    })
+
+
+}
+
+const loadData=()=>{
+    fetch("https://registration-a11b0-default-rtdb.europe-west1.firebasedatabase.app/registration.json", {
+        method: "GET",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        }
+    })
+    .then((response)=>{
+        return response.json();
+    })
+    .then((data: {[key:string]:Registration})=>{
+    
+        registrationData=[];
+        Object.keys(data).forEach((k)=>{
+            registrationData.push({id:k,...data[k]});
+        })
+        showData();
+        console.log(registrationData);
+    });
+}
+
+
+
+
+loadDataButton.onclick=loadData;
