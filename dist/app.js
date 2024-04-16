@@ -84,15 +84,25 @@ const showData = () => {
             document.getElementById("nameEdit").value = reg.name;
             document.getElementById("surnameEdit").value = reg.surname;
             document.getElementById("yearEdit").value = reg.year.toString();
-            document.getElementById("genderEdit").value = reg.gender;
+            if (reg.gender === 'male') {
+                document.getElementById('maleEdit').checked = true;
+            }
+            else if (reg.gender === 'female') {
+                document.getElementById('femaleEdit').checked = true;
+            }
+            else {
+                document.getElementById('maleEdit').checked = false;
+                document.getElementById('femaleEdit').checked = false;
+            }
             document.getElementById("emailEdit").value = reg.email;
             document.getElementById("phoneEdit").value = reg.phone;
             document.getElementById("updateRegistration").onclick = () => {
+                const genderEdit = document.getElementById('maleEdit').checked ? 'male' : document.getElementById('femaleEdit').checked ? 'female' : 'unknown';
                 const upReg = {
                     name: document.getElementById("nameEdit").value,
                     surname: document.getElementById("surnameEdit").value,
                     year: document.getElementById("yearEdit").valueAsNumber,
-                    gender: document.getElementById("genderEdit").value,
+                    gender: genderEdit,
                     email: document.getElementById("emailEdit").value,
                     phone: document.getElementById("phoneEdit").value,
                 };

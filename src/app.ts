@@ -100,15 +100,24 @@ const showData=()=>{
             (<HTMLInputElement>document.getElementById("nameEdit")).value=reg.name;
             (<HTMLInputElement>document.getElementById("surnameEdit")).value=reg.surname;
             (<HTMLInputElement>document.getElementById("yearEdit")).value=reg.year.toString();
-            (<HTMLInputElement>document.getElementById("genderEdit")).value=reg.gender;
+             if (reg.gender === 'male') {
+                (<HTMLInputElement>document.getElementById('maleEdit')).checked = true;
+            } else if (reg.gender === 'female') {
+                (<HTMLInputElement>document.getElementById('femaleEdit')).checked = true;
+            } else {
+                (<HTMLInputElement>document.getElementById('maleEdit')).checked = false;
+                (<HTMLInputElement>document.getElementById('femaleEdit')).checked = false;
+            }
             (<HTMLInputElement>document.getElementById("emailEdit")).value=reg.email;
             (<HTMLInputElement>document.getElementById("phoneEdit")).value=reg.phone;
             (<HTMLButtonElement>document.getElementById("updateRegistration")).onclick=()=>{
+                const genderEdit = (<HTMLInputElement>document.getElementById('maleEdit')).checked ? 'male' : (<HTMLInputElement>document.getElementById('femaleEdit')).checked ? 'female' : 'unknown';
+
                 const upReg:Registration={
                     name:(<HTMLInputElement>document.getElementById("nameEdit")).value,
                     surname:(<HTMLInputElement>document.getElementById("surnameEdit")).value,
                     year:(<HTMLInputElement>document.getElementById("yearEdit")).valueAsNumber,
-                    gender:(<HTMLInputElement>document.getElementById("genderEdit")).value,
+                    gender:genderEdit,
                     email:(<HTMLInputElement>document.getElementById("emailEdit")).value,
                     phone:(<HTMLInputElement>document.getElementById("phoneEdit")).value,
                 }
