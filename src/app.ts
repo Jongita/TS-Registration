@@ -10,6 +10,13 @@ const phoneDOM=<HTMLInputElement>document.getElementById("phone");
 const addRegistrationButton=<HTMLButtonElement>document.getElementById("addRegistration");
 const error =<HTMLDivElement>document.querySelector("#error");
 
+const loadDataButton=<HTMLButtonElement>document.getElementById("loadData");
+const dataTableBody=<HTMLElement>document.getElementById("dataTableBody");
+
+const dataTable=<HTMLElement>document.getElementById("dataTable");
+const editForm=<HTMLElement>document.getElementById("editForm");
+
+
 error.style.visibility = "hidden";
 addRegistrationButton.onclick=()=>{
     const genderInp: string = maleDOM.checked ? 'male' : femaleDOM.checked ? 'female' : 'unknown';
@@ -20,7 +27,7 @@ addRegistrationButton.onclick=()=>{
     }
     const reg:Registration={
         name: nameDOM.value,
-        surname: surnameDOM.value,
+        surname: surnameDOM.value, 
         year: yearDOM.valueAsNumber,
         gender: genderInp,
         email: emailDOM.value,

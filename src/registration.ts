@@ -5,4 +5,5 @@ export interface Registration{
     gender:string;
     email:string;
     phone:string;
+    id?:string;
 }

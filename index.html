@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mt-3">
+            <div class="col-md-3 mt-3">
                 <div class="card">
                     <div class="card-header">
                         Suveskite vaiko duomenis
@@ -53,6 +53,80 @@
                 </div>
 
             </div>
+            <div class="col-md-9 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                        Rezultatas
+
+                    </div>
+                    <div class="card-body">
+
+                        <div id="dataTable">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Vardas</th>
+                                        <th>Pavarde</th>
+                                        <th>Gimimo metai</th>
+                                        <th>Lytis</th>
+                                        <th>El.pastas</th>
+                                        <th>Telefonas</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataTableBody">
+                                    <tr>
+                                        <th>Ona</th>
+                                        <th>Jonaityte</th>
+                                        <th>2000</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div id="editForm" style="display: none;">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Vardas:</label>
+                                <input type="text" name="" id="nameEdit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Pavarde:</label>
+                                <input type="text" name="" id="surnameEdit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Gimimo metai:</label>
+                                <input type="number" name="" id="yearEdit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Lytis:</label>
+                                <input type="text" name="" id="genderEdit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">El.pastas:</label>
+                                <input type="text" name="" id="emailEdit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Telefonas:</label>
+                                <input type="text" name="" id="phoneEdit" class="form-control">
+                            </div>
+
+                            <button class="btn btn-success" id="updateRegistration">Atnaujinti įrašą</button>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
     </div>
 
