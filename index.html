@@ -71,7 +71,7 @@
                                         <th>Lytis</th>
                                         <th>El.pastas</th>
                                         <th>Telefonas</th>
-                                        <th>Veiksmai</th>
+
                                     </tr>
                                 </thead>
                                 <tbody id="dataTableBody">
@@ -85,6 +85,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div>
+                                <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
+                            </div>
 
                         </div>
 
@@ -107,6 +110,7 @@
                                 <input type="radio" id="femaleEdit" name="gender" value="female">
                                 <label for="female">Moteris</label><br>
                             </form>
+                            <br>
                             <div class="mb-3">
                                 <label for="" class="form-label">El.pastas:</label>
                                 <input type="text" name="" id="emailEdit" class="form-control">
@@ -117,10 +121,8 @@
                             </div>
 
                             <button class="btn btn-success" id="updateRegistration">Atnaujinti įrašą</button>
-                        </div>
 
-                        <div>
-                            <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
+                            <button class="btn btn-danger float-end" id="deleteRegistration">Ištrinti įrašą</button>
                         </div>
 
                     </div>
