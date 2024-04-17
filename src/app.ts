@@ -14,10 +14,7 @@ const addRegistrationButton=<HTMLButtonElement>document.getElementById("addRegis
 const error =<HTMLDivElement>document.querySelector("#error");
 
 const loadDataButton=<HTMLButtonElement>document.getElementById("loadData");
-// const dataTableBody=<HTMLElement>document.getElementById("dataTableBody");
 
-// const dataTable=<HTMLElement>document.getElementById("dataTable");
-// const editForm=<HTMLElement>document.getElementById("editForm");
 
 export const registrationData:Registration[] = [];
 

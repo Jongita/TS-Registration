@@ -10,9 +10,6 @@ const phoneDOM = document.getElementById("phone");
 const addRegistrationButton = document.getElementById("addRegistration");
 const error = document.querySelector("#error");
 const loadDataButton = document.getElementById("loadData");
-// const dataTableBody=<HTMLElement>document.getElementById("dataTableBody");
-// const dataTable=<HTMLElement>document.getElementById("dataTable");
-// const editForm=<HTMLElement>document.getElementById("editForm");
 export const registrationData = [];
 error.style.visibility = "hidden";
 addRegistrationButton.onclick = () => {

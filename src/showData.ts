@@ -25,17 +25,14 @@ export const showData=(registrationData:Registration[])=>{
 
         const tdPhone=document.createElement("td");
         tdPhone.innerHTML=reg.phone;
-        // desim button
-        // const tdV=document.createElement("td");
-
+      
         tr.appendChild(tdName);
         tr.appendChild(tdSurname);
         tr.appendChild(tdYear);
         tr.appendChild(tdGender);
         tr.appendChild(tdEmail);
         tr.appendChild(tdPhone);
-        // tr.appendChild(tdV);
-
+       
         dataTableBody.appendChild(tr);
 
         tr.onclick=()=>{
