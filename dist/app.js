@@ -7,6 +7,7 @@ const emailDOM = document.getElementById("email");
 const phoneDOM = document.getElementById("phone");
 const addRegistrationButton = document.getElementById("addRegistration");
 const error = document.querySelector("#error");
+` `;
 const loadDataButton = document.getElementById("loadData");
 const dataTableBody = document.getElementById("dataTableBody");
 const dataTable = document.getElementById("dataTable");
@@ -68,7 +69,7 @@ const showData = () => {
         tdEmail.innerHTML = reg.email;
         const tdPhone = document.createElement("td");
         tdPhone.innerHTML = reg.phone;
-        // desim buttonus
+        // desim button
         const tdV = document.createElement("td");
         tr.appendChild(tdName);
         tr.appendChild(tdSurname);

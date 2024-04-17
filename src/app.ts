@@ -9,7 +9,7 @@ const emailDOM=<HTMLInputElement>document.getElementById("email");
 const phoneDOM=<HTMLInputElement>document.getElementById("phone");
 const addRegistrationButton=<HTMLButtonElement>document.getElementById("addRegistration");
 const error =<HTMLDivElement>document.querySelector("#error");
-
+` `
 const loadDataButton=<HTMLButtonElement>document.getElementById("loadData");
 const dataTableBody=<HTMLElement>document.getElementById("dataTableBody");
 
@@ -81,7 +81,7 @@ const showData=()=>{
 
         const tdPhone=document.createElement("td");
         tdPhone.innerHTML=reg.phone;
-        // desim buttonus
+        // desim button
         const tdV=document.createElement("td");
 
         tr.appendChild(tdName);
@@ -110,6 +110,8 @@ const showData=()=>{
             }
             (<HTMLInputElement>document.getElementById("emailEdit")).value=reg.email;
             (<HTMLInputElement>document.getElementById("phoneEdit")).value=reg.phone;
+
+
             (<HTMLButtonElement>document.getElementById("updateRegistration")).onclick=()=>{
                 const genderEdit = (<HTMLInputElement>document.getElementById('maleEdit')).checked ? 'male' : (<HTMLInputElement>document.getElementById('femaleEdit')).checked ? 'female' : 'unknown';
 
