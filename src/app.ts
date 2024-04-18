@@ -1,3 +1,4 @@
+import { loginExec, registerExec } from "./auth.js";
 import { fetchRegistrations } from "./fetchData.js";
 import { loadData } from "./loadData.js";
 import { Registration } from "./registration.js";
@@ -53,5 +54,64 @@ addRegistrationButton.onclick=()=>{
     phoneDOM.value = '';
 };
 
+export const userInfo={
+    email:"",
+    idToken:"",
+    loggedin:false,
+};
+
+// Paslėpiame duomenų sekciją ir įjungiame rodyti prisijungimo sekciją
+(<HTMLElement>document.getElementById("loginSection")).style.display="block";
+(<HTMLElement>document.getElementById("dataSection")).style.display="none";
+(<HTMLElement>document.getElementById("loginError")).style.display="none";
+
 loadDataButton.onclick=loadData;
-loadData();
+
+// (<HTMLButtonElement>document.getElementById("login")).onclick=loginExec;
+// (<HTMLButtonElement>document.getElementById("register")).onclick=registerExec;
+
+
+// loadData();
+
+// Registracijos URL (API KEY turim ideti savo aplikacijos rakta)
+// https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBu5FAtvsWxbYVd2fa47_Me-GQut4pGiEw
+
+
+//Prisijungimui URL
+// https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBu5FAtvsWxbYVd2fa47_Me-GQut4pGiEw
+
+// API KEY:
+// AIzaSyBu5FAtvsWxbYVd2fa47_Me-GQut4pGiEw
+
+//Registracijos išbandymas
+
+// (<HTMLButtonElement>document.getElementById("login")).onclick=()=>{
+//     fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBu5FAtvsWxbYVd2fa47_Me-GQut4pGiEw",{
+//         method:"POST",
+//         headers:{
+//                 'Accept':'application/json',
+//                 'Content-Type':'application/json'
+//         },
+//         body: JSON.stringify({
+//             email:"jongita@yahoo.com",
+//             password:"LabasRytas",
+//             returnSecureToken:true,
+//         })
+//     })
+//     .then((response)=>{
+//       return response.json();
+//     })
+//     .then((data)=>{
+//      console.log(data);
+//      // jei prisijungimas suveike gerai mes turesim siuos duomenis
+//      userInfo.email=data.email;
+//      userInfo.idToken=data.idToken;
+//      userInfo.loggedin=true;
+//      (<HTMLElement>document.getElementById("loginSection")).style.display="none";
+//      (<HTMLElement>document.getElementById("dataSection")).style.display="block";
+//      loadData();
+//     });
+// }
+
+(<HTMLButtonElement>document.getElementById("login")).onclick=loginExec;
+(<HTMLButtonElement>document.getElementById("register")).onclick=registerExec;

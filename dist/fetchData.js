@@ -1,3 +1,4 @@
+import { userInfo } from "./app.js";
 export const fetchRegistrations = (path, method, data) => {
     let options = {
         method: method,
@@ -10,5 +11,5 @@ export const fetchRegistrations = (path, method, data) => {
         options.body = JSON.stringify(data);
         //options={body:JSON.stringify(data), ...options};
     }
-    return fetch(`https://registration-a11b0-default-rtdb.europe-west1.firebasedatabase.app/${path}.json`, options);
+    return fetch(`https://registration-a11b0-default-rtdb.europe-west1.firebasedatabase.app/${path}.json?auth=${userInfo.idToken}`, options);
 };
